@@ -719,17 +719,23 @@ final public class StepImpe {
 				DBUtilities createXpath = new DBUtilities(driver);
 				String myxpath = createXpath.xpathMaker(arg1);
 				System.out.println("cliclking on " + myxpath);
-				// Assert.assertTrue(driver.findElement(By.xpath(myxpath)).isDisplayed());
-				Thread.sleep(3000 * sleepMultiplier);
+				if(arg1.equals("SETTINGS"))
+				{
+					String myxpath2 = createXpath.xpathMakerContainsText3rdOption(arg1);
+					driver.findElement(By.xpath(myxpath2)).click();
+				}
+				
+			   
 				driver.findElement(By.xpath(myxpath)).click();
 			} catch (Exception | AssertionError e) {
-
+				
 				DBUtilities createXpath = new DBUtilities(driver);
 				String myxpath = createXpath.xpathMakerContainsText(arg1);
 				System.out.println("cliclking on " + myxpath);
-				// Assert.assertTrue(driver.findElement(By.xpath(myxpath)).isDisplayed());
-				Thread.sleep(3000 * sleepMultiplier);
-				driver.findElement(By.xpath(myxpath)).click();
+//				 Assert.assertTrue(driver.findElement(By.xpath(myxpath)).isDisplayed());
+//				Thread.sleep(3000 * sleepMultiplier);
+//				
+//				driver.findElement(By.xpath(myxpath)).click();
 			}
 		}
 

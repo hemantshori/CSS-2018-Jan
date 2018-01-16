@@ -1,4 +1,4 @@
-@USS_Regression
+
 Feature: To test the functionality of Appication as described in Jira Stories for Iteration 1
 
   Scenario Outline: User views the menu items, Test 1, DUSSP-245, DUSSP-533, DUSSP-832 Description: User views the menu items Epic: Common Components
@@ -179,7 +179,7 @@ Feature: To test the functionality of Appication as described in Jira Stories fo
       | PortalName | UserNameField | PasswordField | UserName  | Password | ButtonName      | Graph Message                             |
       | USS        | UserNameInput | PasswordInput | christian | Aussie11 | BILLING HISTORY | Residential - Electricity Billing History |
 
-  @r
+ 
   Scenario Outline: Covers tests around Usage History check, Scenario 189
     Given I want to login to portal "<PortalName>"
     And I enter the details as
@@ -242,6 +242,7 @@ Feature: To test the functionality of Appication as described in Jira Stories fo
       | USS        | UserNameInput | PasswordInput | christian | Aussie11 | Pay        |     689608083 |            20 | christian Test |    4007000000 |           11 |          20 |           223 | The credit card number is invalid. |
 
   #    | USS        | UserNameInput | PasswordInput | christian | Aussie111 | Pay        | 689608083     | 5.00          | christian Test    | 4007000000027 | 11           | 20          | 112           | Thank you, your payment has been received. |
+
   Scenario Outline: DUSSP-422, 423, SUCCESSFUL PAYMENTS, To make payment from RHS "PAY" button.
     #PaymentServiceUnavailable error, needs investigation
     Given I want to login to portal "<PortalName>"
@@ -265,12 +266,14 @@ Feature: To test the functionality of Appication as described in Jira Stories fo
 
     Examples: 
       | PortalName | UserNameField | PasswordField | UserName  | Password | ButtonName | AccountNumber | PaymentAmount | Name on Card   | Card Number   | Expiry Month | Expiry Year | Security Code | Message                                    |
-      | USS        | UserNameInput | PasswordInput | christian | Aussie11 | Pay        |     689608083 |          1.10 | christian Test | 4007000000027 |           05 |          20 |           113 | Thank you, your payment has been received. |
+      | USS        | UserNameInput | PasswordInput | christian | Aussie11 | Pay        |     689608083 |          1.10 | christian Test | 4007000000027 |           05 |          20 |           113 |  A duplicate transaction has been submitted. |
+      | USS        | UserNameInput | PasswordInput | christian | Aussie11 | Pay        |     689608083 |          1.19 | christian Test | 4007000000027 |           05 |          20 |           113 | Thank you, your payment has been received. |
 
   #########################################################################
   ###############################EDIT SETTINGS##################################
   #########################################################################
-  Scenario Outline: DUSSP-162, DUSSP-236 edit settings......................Ellen Please verify these
+ 
+  Scenario Outline: DUSSP-162, DUSSP-236 edit settings
     Given I want to login to portal "<PortalName>"
     And I enter the details as
       | Fields        | Value      |
@@ -312,7 +315,7 @@ Feature: To test the functionality of Appication as described in Jira Stories fo
     Examples: 
       | PortalName | UserNameField | PasswordField | UserName  | Password | email          | Message                                    |
       | USS        | UserNameInput | PasswordInput | christian | Aussie11 | test4@test.com | Your changes have been saved successfully. |
-
+   @USS_Regression
   Scenario Outline: DUSSP-433, DUSSP-550 (reset password is manual), DUSSP-162 Edit Settings>> reset pwd
     Given I want to login to portal "<PortalName>"
     And I enter the details as
@@ -342,8 +345,7 @@ Feature: To test the functionality of Appication as described in Jira Stories fo
       | USS        | UserNameInput | PasswordInput | christian | Aussie11 | Aussie11         | TEST         | Aussie11             | New Password and Confirm Password do not match. Please try again. |
       | USS        | UserNameInput | PasswordInput | christian | Aussie11 |                  | Aussie11     | Aussie11             | Please input your current password to change your new password.   |
       | USS        | UserNameInput | PasswordInput | christian | Aussie11 | Aussie11         | DBR          | DBR                  | New Password is invalid. Please try again.                        |
-
-  # | USS        | UserNameInput | PasswordInput | mary    | Aussie11 | Aussie11        | Aussie11    | Aussie11            | Your changes have been saved successfully.                                             |
+      | USS        | UserNameInput | PasswordInput | mary    | Aussie11 | Aussie11        | Aussie11    | Aussie11            | Your changes have been saved successfully.                                             |
   ######################################################################################################################
   ###############################                 ACCOUNT REGISTRATION                ##################################
   ######################################################################################################################
