@@ -1174,7 +1174,17 @@ final public class StepImpe {
 
 		}
 	}
-
+	@And("^I \"(.*?)\" windows alert$")
+	public void on_windows_alert(String arg1)
+	{
+		if(arg1.equals("Accept"))
+		{
+			driver.switchTo().alert().accept();
+		}else{
+			driver.switchTo().alert().dismiss();
+			}
+		}
+		
 	@Then("^I check the values of dropdown \"(.*?)\" are alphabetical$")
 	public void i_check_the_values_of_dropdown_are_alphabetical(String arg1) throws Throwable {
 		DBUtilities dbutil = new DBUtilities(driver);
